@@ -9,8 +9,6 @@ int main(){
   int userArray[MAX_VALS];
   int userVals = 0;
   int startIndex = 0;
-  int value;
-  int tempVar;
 
   cout << "Enter number of values: ";
   cin >> userVals;
@@ -23,15 +21,19 @@ int main(){
   cout << "Enter start index: ";
   cin >> startIndex;
 
-  for(int i = 0; i < startIndex - i; i++){
-    for(int i = userVals; i > 0; i--){
-      tempVar = userArray[userVals];
-      userArray[i] = userArray[i - 1];
+  for(int i = 0; i < userVals - startIndex; i++){
+    int tempVal = userArray[userVals - 1];
+    for(int j = userVals - 1; j > 0; j--){
+      userArray[j] = userArray[j - 1];
     }
 
-  userArray[0] = tempVar;
-  userArray[userVals] = '\0';
+  userArray[0] = tempVal;
   }
+
+  for(int i = 0; i < userVals; i++){
+    cout << userArray[i] << " ";
+  }
+  cout << endl;
 
 return 0;
 }
